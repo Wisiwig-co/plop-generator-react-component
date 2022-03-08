@@ -6,6 +6,11 @@ const component = {
             name: "name",
             message: "component name",
         },
+        {
+            type: "input",
+            name: "stylestring",
+            message: "styles for component",
+        },
     ],
     actions: [
         {
@@ -27,6 +32,11 @@ const component = {
             type: "add",
             path: "src/components/{{pascalCase name}}/{{pascalCase name}}.module.css",
             templateFile: "./templates/styles.hbs",
+        },
+        {
+            type: "add",
+            path: "src/components/Layout.tsx",
+            templateFile: "./templates/container.hbs",
         },
     ],
 }
