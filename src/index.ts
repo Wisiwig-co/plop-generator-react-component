@@ -8,8 +8,9 @@ const generator = (plop: NodePlopAPI): void => {
     plop.setDefaultInclude({generators: true})
     plop.setActionType('genmulticomp', function (config) {
         let numComponents = parseInt((config as any).num);
-        for (let i = 0; i < numComponents; i++) {
-            fs.copyFile(path.join(__dirname + "/templates/component/{{ name }}.tsx.hbs"), path.join(__dirname + "/templates/component/{{ name }}-two.tsx.hbs"),
+        for (let i = 1; i < numComponents; i++) {
+            fs.copyFile(path.join(__dirname + "/templates/component/{{ name }}.tsx.hbs"),
+                path.join(__dirname + `/templates/component/{{ name }}-${i}.tsx.hbs`),
               err => {
                     if (err) {
                         console.log(err.message);

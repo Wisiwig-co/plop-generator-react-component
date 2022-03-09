@@ -26,7 +26,7 @@ const component = {
     actions: [
         {
             type: "genmulticomp",
-            numComponents: "{{num}}"
+            numComponents: "{{ num }}"
         },
         {
             type: "addMany",
