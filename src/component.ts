@@ -10,19 +10,30 @@ const component = {
             type: "input",
             name: "name",
             message: "component name"
+        },
+        {
+            type: "input",
+            //TODO: doesn't look like semicolons preserve from CLI arg
+            name: "styles",
+            message: "component styles"
         }
     ],
     actions: [
         {
             type: "addMany",
             destination: "src/components/{{ appName }}",
-            templateFiles: `./templates/*.hbs`,
+            templateFiles: `./templates/component/*.hbs`,
             verbose: true,
         },
         {
             type: "add",
             path: "src/components/{{ appName }}/Layout.tsx",
             templateFile: "./templates/container.hbs",
+        },
+        {
+            type: "add",
+            path: "src/components/{{ appName }}/ReadMe.md",
+            templateFile: "./templates/readme.hbs",
         }
     ],
 }
