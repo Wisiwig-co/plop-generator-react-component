@@ -8,6 +8,11 @@ const component = {
         },
         {
             type: "input",
+            name: "num",
+            message: "number of components",
+        },
+        {
+            type: "input",
             name: "name",
             message: "component name"
         },
@@ -19,6 +24,10 @@ const component = {
         }
     ],
     actions: [
+        {
+            type: "genmulticomp",
+            numComponents: "{{num}}"
+        },
         {
             type: "addMany",
             destination: "src/components/{{ appName }}",
