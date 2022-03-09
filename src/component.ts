@@ -3,41 +3,27 @@ const component = {
     prompts: [
         {
             type: "input",
-            name: "name",
-            message: "component name",
+            name: "appName",
+            message: "app name",
         },
         {
             type: "input",
-            name: "stylestring",
-            message: "styles for component",
-        },
+            name: "name",
+            message: "component name"
+        }
     ],
     actions: [
         {
-            type: "add",
-            path: "src/components/{{pascalCase name}}/index.ts",
-            templateFile: "./templates/index.hbs",
+            type: "addMany",
+            destination: "src/components/{{ appName }}",
+            templateFiles: `./templates/*.hbs`,
+            verbose: true,
         },
         {
             type: "add",
-            path: "src/components/{{pascalCase name}}/{{pascalCase name}}.tsx",
-            templateFile: "./templates/component.hbs",
-        },
-        {
-            type: "add",
-            path: "src/components/{{pascalCase name}}/{{pascalCase name}}.test.tsx",
-            templateFile: "./templates/test.hbs",
-        },
-        {
-            type: "add",
-            path: "src/components/{{pascalCase name}}/{{pascalCase name}}.module.css",
-            templateFile: "./templates/styles.hbs",
-        },
-        {
-            type: "add",
-            path: "src/components/Layout.tsx",
+            path: "src/components/{{ appName }}/Layout.tsx",
             templateFile: "./templates/container.hbs",
-        },
+        }
     ],
 }
 
